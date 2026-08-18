@@ -340,6 +340,24 @@ A hidden control gives its space back, and gets exactly that space again on show
   view still records the hide, so it stays hidden when it scrolls back -- the
   two are tracked separately, and only the script owns the first one.
 
+## [hide a whole group](layout_hide_sub_section)
+---
+Category: Layout
+---
+
+A `gui_sub_section` hides as one thing and takes its contents with it.
+
+- One `gui_hide` for a whole panel -- a heading and four rows is one call, not
+  five. The siblings re-share the row exactly as they do for a single control.
+- Hide the object the `with` block was opened on, so keep it in a variable:
+  `middle = gui_sub_section()` and then `with middle:`.
+- Hiding one BEFORE its `with` block has run is a no-op, not an error. The
+  block is what builds the layout the object stands for.
+- Between this and `recipe_panel_swap`: a sub-section flows in its parent row,
+  so hiding it lets the neighbors take the space. A region is pinned to an
+  absolute area, so hiding it leaves a hole -- which is why panel-swap stacks
+  two regions rather than reflowing one.
+
 ## [swap two panels in one place](recipe_panel_swap)
 ---
 Category: Recipes

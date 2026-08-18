@@ -473,6 +473,50 @@
             gui_text("$text:`Two buttons split the row while the third is away, and all three go back to a third each on restore. The page is never rebuilt.`;font:gui-1;color:#9ab;")
 # <<gallery
 
+        case "layout_hide_sub_section":
+# >>gallery: layout_hide_sub_section
+            # The same hide, applied to a GROUP. A sub-section goes off screen
+            # as one thing and takes everything inside it along, so a panel with
+            # a heading and four rows is one gui_hide, not five.
+            #
+            # Keep the object the `with` block was opened on -- that is what you
+            # hide. The `with` block is what builds the layout it stands for, so
+            # hiding one BEFORE its block has run is a no-op, not an error.
+            default hide_group = False
+            gui_row("row-height: 2em; font:gui-1;")
+            group_toggle = gui_button("Toggle the middle group")
+
+            gui_row("row-height: 3.2em; font:gui-2;")
+            with gui_sub_section("col-width: 1fr;"):
+                gui_row("row-height: 1fr;")
+                gui_text("$text:`Left`;font:gui-2;color:#8cf;justify:center;")
+
+            middle = gui_sub_section("col-width: 1fr;")
+            with middle:
+                gui_row("row-height: 1fr;")
+                gui_text("$text:`Middle`;font:gui-2;color:#fc8;justify:center;")
+                gui_row("row-height: 1fr;")
+                gui_text("$text:`two rows, one group`;font:gui-1;color:#fc8;justify:center;")
+
+            with gui_sub_section("col-width: 1fr;"):
+                gui_row("row-height: 1fr;")
+                gui_text("$text:`Right`;font:gui-2;color:#8cf;justify:center;")
+
+            # Only for a fresh build -- a newly made sub-section starts visible.
+            if hide_group:
+                gui_hide(middle)
+
+            on gui_message(group_toggle):
+                hide_group = not hide_group
+                if hide_group:
+                    gui_hide(middle)
+                else:
+                    gui_show(middle)
+
+            gui_row("row-height: content; font:gui-1;")
+            gui_text("$text:`Both rows of the middle group leave together, and Left and Right split the row until it comes back. No rebuild, same as hiding one control.`;font:gui-1;color:#9ab;")
+# <<gallery
+
 # ---------------------------------------------------------------------------
 # RECIPES. Composed patterns rather than single widgets -- the shapes a real
 # console is made of. A new author copies one of these, not a gui_text call.
