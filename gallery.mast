@@ -224,6 +224,30 @@
             gui_text_area("## Status^All systems nominal.^- shields up^- 1 contact^^### Orders^1. Hold station^2. Await the escort")
 # <<gallery
 
+        case "gauge_basic":
+# >>gallery: gauge_basic
+            # Label left, value right, a bar under both colored by how full it is:
+            # green, yellow below 50%, red below 25%.
+            gui_row("row-height: content;")
+            gui_gauge(946, 1000, "Energy")
+            gui_row("row-height: content;")
+            gui_gauge(45, 120, "FRNT SHLD", show="frac")
+            gui_row("row-height: content;")
+            gui_gauge(90, 100, "Heat", show="pct", color="#e80")
+            # LIVE: keep the handle and set .value - only the gauge repaints.
+            # (Inside an overlay slot, tab or listbox row a widget cannot repaint
+            # itself; there the owner redraws - for an overlay, overlay_patch.)
+            start_counter(client_id, "gallery_gauge")
+            gui_row("row-height: content;")
+            gallery_gauge = gui_gauge(100, 100, "REAR SHLD")
+            on change int(get_counter_elapsed_seconds(client_id, "gallery_gauge", 0)):
+                gallery_t = int(get_counter_elapsed_seconds(client_id, "gallery_gauge", 0))
+                gallery_gauge.value = abs(20 - gallery_t % 40) * 5
+            # The same drawing inside a gui_text_area, as markdown:
+            gui_row("row-height: 1fr;")
+            gui_text_area("[Energy](gauge://807?max=1000)^| | |^|:--:|:--:|^| [ENGN](gauge://1?max=1&show=none) | [WEAP](gauge://0.4?max=1&show=none) |^| [SHLD](gauge://0.2?max=1&show=none) | [SENS](gauge://1?max=1&show=none) |")
+# <<gallery
+
         case "callout_basic":
 # >>gallery: callout_basic
             # An .amd body, exactly as an author writes it in a library document --

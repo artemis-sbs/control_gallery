@@ -139,6 +139,25 @@ vertical scrollbar when the content overflows.
 - It CANNOT render source code: `#` is also a MAST comment, `-` a bullet, and
   `$` a style directive. Render code as one gui_text per line.
 
+## [gui_gauge](gauge_basic)
+---
+Category: Controls
+---
+Label, value and a bar colored by how full it is - the engine's status-panel look.
+
+There is no engine bar widget; a gauge is text plus two images. `gui_gauge` is a
+layout widget: keep the handle and set `.value` and only the gauge repaints.
+- `show=` picks the number: `value` (default with a label), `frac` ("45 / 120"),
+  `pct`, or `none` (default without a label - a bare bar).
+- `warn=`/`crit=` move the yellow/red thresholds (0.5 / 0.25); `color=` fixes it.
+- A value outside 0..max clamps the BAR; the number shown is still the real one.
+- In a `gui_text_area` the same drawing is `[Energy](gauge://946?max=1000)`, as a
+  whole line or a table cell. A table whose first row is empty (`| | |`) has no
+  header, which is how the ENGN / WEAP / SHLD / SENS grid is written. A text area
+  re-sends everything on a change, so keep its gauges for slow values.
+- Inside an overlay slot, tab or listbox row a widget cannot repaint itself; the
+  owner must redraw it (for an overlay, `overlay_patch`).
+
 ## [AMD callouts](callout_basic)
 ---
 Category: Controls
