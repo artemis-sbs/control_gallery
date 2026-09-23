@@ -234,6 +234,9 @@
             gui_gauge(45, 120, "FRNT SHLD", show="frac")
             gui_row("row-height: content;")
             gui_gauge(90, 100, "Heat", show="pct", color="#e80")
+            # Over max: a full bar in the engineering console's TUNED cyan.
+            gui_row("row-height: content;")
+            gui_gauge(120, 100, "WEAP boost", show="pct")
             # LIVE: keep the handle and set .value - only the gauge repaints.
             # (Inside an overlay slot, tab or listbox row a widget cannot repaint
             # itself; there the owner redraws - for an overlay, overlay_patch.)

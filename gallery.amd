@@ -151,6 +151,7 @@ layout widget: keep the handle and set `.value` and only the gauge repaints.
   `pct`, or `none` (default without a label - a bare bar).
 - `warn=`/`crit=` move the yellow/red thresholds (0.5 / 0.25); `color=` fixes it.
 - A value outside 0..max clamps the BAR; the number shown is still the real one.
+  Over max the bar turns the engineering console's TUNED cyan ("120%").
 - In a `gui_text_area` the same drawing is `[Energy](gauge://946?max=1000)`, as a
   whole line or a table cell. A table whose first row is empty (`| | |`) has no
   header, which is how the ENGN / WEAP / SHLD / SENS grid is written. A text area
