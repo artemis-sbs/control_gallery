@@ -175,6 +175,22 @@ and Back to return.
 - `link_resolver=` (a function or a `{key: text}` dict) says what a link opens;
   `on_link=fn(key, widget)` hears every click.
 
+## [Text area: collapsible sections](text_area_fold)
+---
+Category: Controls
+---
+Headings that fold, and one icon for a whole list.
+
+Click a heading to open or close its section.
+- `##+ Title` starts a section CLOSED, `##- Title` starts it open. The marker
+  touches the hashes: `## - x` is an ordinary heading.
+- A section runs to the next heading at the same or a higher level, so it folds
+  its tables, lists and sub-headings with it.
+- What the reader opened stays open when the text is updated.
+- `[](bullet://check.on?color=#8f8)` on its own line gives every `-` item of the
+  list below it that icon. A blank line ends it; an item can still start with its
+  own `![](icon://..)`.
+
 ## [AMD callouts](callout_basic)
 ---
 Category: Controls

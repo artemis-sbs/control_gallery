@@ -259,6 +259,12 @@
             gui_text_area(gallery_doc_home(), link_resolver=gallery_doc_page)
 # <<gallery
 
+        case "text_area_fold":
+# >>gallery: text_area_fold
+            gui_row("row-height: 1fr;")
+            gui_text_area(gallery_fold_doc())
+# <<gallery
+
         case "callout_basic":
 # >>gallery: callout_basic
             # An .amd body, exactly as an author writes it in a library document --

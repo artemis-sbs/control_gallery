@@ -117,6 +117,7 @@ GALLERY_DOCS = {
     ]),
     "kralien": "\n".join([
         "## Kralien",
+        "",
         "![](icon://wanted?color=#f66) Bounty posted on every cruiser.",
         "",
         "Swarm tactics: many light hulls, poor shields, fast turn.",
@@ -143,4 +144,35 @@ def gallery_doc_page(key):
 
 def gallery_doc_home():
     return GALLERY_DOCS["index"]
+# <<gallery
+
+
+# >>gallery: text_area_fold
+# One document, folded: `##+` starts a section closed and `##-` open. Click a heading
+# to toggle it - the rest of the page moves, and a section that holds a table or a
+# sub-heading folds all of it. `[](bullet://..)` gives a whole list one icon.
+GALLERY_FOLD_DOC = "\n".join([
+    "# Damage report",
+    "##- Hull",
+    "[Hull](gauge://72?max=100)",
+    "[](bullet://check.on?color=#8f8)",
+    "- Forward bulkhead sealed",
+    "- Aft bulkhead sealed",
+    "##+ Weapons",
+    "| Tube | Load |",
+    "|:--|:--|",
+    "| 1 | Homing |",
+    "| 2 | Nuke |",
+    "###- Beams",
+    "[](bullet://check.off?color=#f66)",
+    "- Port array offline",
+    "##+ Crew",
+    "[](bullet://wanted?color=#fc8)",
+    "- Two injured in engineering",
+    "- One missing on deck 4",
+])
+
+
+def gallery_fold_doc():
+    return GALLERY_FOLD_DOC
 # <<gallery
