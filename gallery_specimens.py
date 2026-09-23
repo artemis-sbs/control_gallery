@@ -154,6 +154,8 @@ def gallery_doc_home():
 GALLERY_FOLD_DOC = "\n".join([
     "# Damage report",
     "##- Hull",
+    "[](ship://tsn_battle_cruiser) Artemis, light cruiser",
+    "",
     "[Hull](gauge://72?max=100)",
     "[](bullet://check.on?color=#8f8)",
     "- Forward bulkhead sealed",
@@ -166,13 +168,17 @@ GALLERY_FOLD_DOC = "\n".join([
     "###- Beams",
     "[](bullet://check.off?color=#f66)",
     "- Port array offline",
-    "##+ Crew",
-    "[](bullet://wanted?color=#fc8)",
-    "- Two injured in engineering",
-    "- One missing on deck 4",
+    "##- Crew",
+    "{crew}",
 ])
 
 
 def gallery_fold_doc():
-    return GALLERY_FOLD_DOC
+    """A face leads each crew line - a face, image or ship can be a bullet too, two
+    text lines tall unless `size=` says otherwise."""
+    from sbs_utils.faces import random_terran
+    crew = [("Lt Marek", "injured, engineering"), ("Ens Okafor", "injured, engineering"),
+            ("CPO Lind", "missing, deck 4")]
+    lines = [f"- ![](face://{random_terran()}) {who} - {state}" for who, state in crew]
+    return GALLERY_FOLD_DOC.replace("{crew}", "\n".join(lines))
 # <<gallery

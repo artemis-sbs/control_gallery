@@ -190,6 +190,10 @@ Click a heading to open or close its section.
 - `[](bullet://check.on?color=#8f8)` on its own line gives every `-` item of the
   list below it that icon. A blank line ends it; an item can still start with its
   own `![](icon://..)`.
+- A FACE, IMAGE or SHIP leads a line the same way: `- ![](face://..) Lt Marek`.
+  A face is two text lines tall, a ship four (the engine frames a ship small), an
+  icon or image one; `size=N` sets it. A picture with no text after it is still
+  drawn full size, as before.
 
 ## [AMD callouts](callout_basic)
 ---
