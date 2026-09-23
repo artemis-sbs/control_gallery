@@ -251,6 +251,14 @@
             gui_text_area("[Energy](gauge://807?max=1000)^| | |^|:--:|:--:|^| [ENGN](gauge://1?max=1&show=none) | [WEAP](gauge://0.4?max=1&show=none) |^| [SHLD](gauge://0.2?max=1&show=none) | [SENS](gauge://1?max=1&show=none) |")
 # <<gallery
 
+        case "text_area_links":
+# >>gallery: text_area_links
+            gui_row("row-height: 1fr;")
+            # link_resolver takes a function or a {key: text} dict. on_link=fn(key, widget)
+            # hears every click too - to log it, or to drive something outside the area.
+            gui_text_area(gallery_doc_home(), link_resolver=gallery_doc_page)
+# <<gallery
+
         case "callout_basic":
 # >>gallery: callout_basic
             # An .amd body, exactly as an author writes it in a library document --

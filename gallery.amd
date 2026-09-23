@@ -159,6 +159,22 @@ layout widget: keep the handle and set `.value` and only the gauge repaints.
 - Inside an overlay slot, tab or listbox row a widget cannot repaint itself; the
   owner must redraw it (for an overlay, `overlay_patch`).
 
+## [Text area: icons and links](text_area_links)
+---
+Category: Controls
+---
+Icons that lead a line or a table cell, and links that page through a document.
+
+A text area can be a small browsable document: click a species to open its page,
+and Back to return.
+- `![](icon://NAME?color=..)` at the start of a line draws an icon one line tall,
+  with the text wrapped beside it. NAME is an icon name (`wanted`, `check.on`) or
+  a sheet index (`137`).
+- At the start of a list item the icon IS the bullet: `- ![](icon://check.on) Done`.
+- A table cell can start with an icon, or be a `[Text](ref://key)` link.
+- `link_resolver=` (a function or a `{key: text}` dict) says what a link opens;
+  `on_link=fn(key, widget)` hears every click.
+
 ## [AMD callouts](callout_basic)
 ---
 Category: Controls

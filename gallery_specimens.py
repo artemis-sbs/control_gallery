@@ -97,3 +97,50 @@ GALLERY_TEMPLATES = {
 def gallery_template_by_name(name):
     return GALLERY_TEMPLATES.get(name, gallery_tmpl_plain)
 # <<gallery
+
+
+# >>gallery: text_area_links
+# A tiny in-game database: each page is plain text-area markdown, and a
+# [Text](ref://key) link - a whole line or a table cell - swaps the area to the
+# page for that key. Icons lead a line, and at the start of a list item the icon
+# IS the bullet.
+GALLERY_DOCS = {
+    "index": "\n".join([
+        "## Known species",
+        "| | Species | Stance |",
+        "|:--:|:--|:--|",
+        "| ![](icon://wanted?color=#f66) | [Kralien](ref://kralien) | hostile |",
+        "| ![](icon://137?color=#8cf) | [Torgoth](ref://torgoth) | wary |",
+        "",
+        "- ![](icon://check.on?color=#8f8) Hails answered",
+        "- ![](icon://check.off?color=#888) Treaty signed",
+    ]),
+    "kralien": "\n".join([
+        "## Kralien",
+        "![](icon://wanted?color=#f66) Bounty posted on every cruiser.",
+        "",
+        "Swarm tactics: many light hulls, poor shields, fast turn.",
+        "They rarely answer a hail and never surrender.",
+        "Engage at range and keep moving.",
+        "",
+        "- ![](icon://check.on?color=#8f8) Weak to beams",
+        "- ![](icon://check.off?color=#888) Weak to mines",
+        "",
+        "[Back to species](ref://index)",
+    ]),
+    "torgoth": "\n".join([
+        "## Torgoth",
+        "Heavy, slow, honorable.",
+        "[Back to species](ref://index)",
+    ]),
+}
+
+
+def gallery_doc_page(key):
+    """The link resolver: key -> the page to show, or None to stay put."""
+    return GALLERY_DOCS.get(key)
+
+
+def gallery_doc_home():
+    return GALLERY_DOCS["index"]
+# <<gallery
