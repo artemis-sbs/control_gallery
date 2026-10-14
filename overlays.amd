@@ -5,7 +5,7 @@
 
 ## [Chapter One](ch1)
 ---
-Kind: hero
+Card: hero
 Subtitle: The Long Dark
 Seconds: 4
 ---
@@ -13,13 +13,13 @@ CHAPTER ONE
 
 ## [Objective](obj_done)
 ---
-Kind: toast
+Card: toast
 ---
 Convoy reached the waypoint
 
 ## [Admiral](harkin)
 ---
-Kind: lower_third
+Card: lower_third
 Name: Admiral Harkin
 ---
 Hold the line, commander.

@@ -282,7 +282,8 @@ def gallery_load_entries():
             "key": rec.get("key"),
             "label": rec.get("display") or rec.get("key"),
             "category": data.get("category", "Controls"),
-            "kind": data.get("kind"),
+            # `Shows: trap|page` (`Kind:` before 2026-10-14, still read).
+            "kind": data.get("shows") or data.get("kind"),
             "blurb": parts[0].strip(),
             "notes": (parts[1].strip() if len(parts) > 1 else ""),
         })

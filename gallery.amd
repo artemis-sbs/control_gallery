@@ -12,8 +12,8 @@
 // First line of the body is the BLURB (the header line). Everything after it is
 // NOTES, rendered by gui_text_area -- so `-` bullets and `#` headings work.
 //
-// Kind: trap  -> runs BROKEN next to FIXED, and needs <key>_broken/<key>_fixed spans
-// Kind: page  -> drawn full-bleed on the Gallery Viewer console
+// Shows: trap  -> runs BROKEN next to FIXED, and needs <key>_broken/<key>_fixed spans
+// Shows: page  -> drawn full-bleed on the Gallery Viewer console
 
 # [Gallery](gallery)
 
@@ -488,7 +488,7 @@ will eventually disagree with itself.
 ## [update() drops the style](trap_update_style)
 ---
 Category: Traps
-Kind: trap
+Shows: trap
 ---
 update() REPLACES the whole style string.
 
@@ -498,7 +498,7 @@ reverts to unstyled, left-aligned. Carry the whole string every time.
 ## [handler in a for loop](trap_loop_handler)
 ---
 Category: Traps
-Kind: trap
+Shows: trap
 ---
 An inline on-block in a loop captures the loop var at its LAST value.
 
@@ -513,7 +513,7 @@ label and a data dict, never an inline block.
 ## [1em under a bigger font](trap_row_em_font)
 ---
 Category: Traps
-Kind: trap
+Shows: trap
 ---
 em is one line of the ROW's font, and an unfonted row is gui-2.
 
@@ -523,7 +523,7 @@ gui-6 52. Declare the font on the row, or size the row to `content`.
 ## [padding eats row height](trap_padding_height)
 ---
 Category: Traps
-Kind: trap
+Shows: trap
 ---
 Top and bottom padding come OUT of the row height.
 
@@ -533,7 +533,7 @@ A single-value padding is horizontal only and costs no height.
 ## [content row starved](trap_content_starved)
 ---
 Category: Traps
-Kind: trap
+Shows: trap
 ---
 A content row cannot invent space.
 
@@ -544,7 +544,7 @@ that is the layout working, not a bug. Give the panel room.
 ## [engine widget + overlay strip](page_engine_widget)
 ---
 Category: Full page
-Kind: page
+Shows: page
 ---
 gui_layout_widget embeds a real engine view; your rows draw over it.
 
@@ -558,7 +558,7 @@ way -- a camera object plus embedded 2D views.
 ## [gui_region, updated in place](page_region)
 ---
 Category: Full page
-Kind: page
+Shows: page
 ---
 An absolutely-positioned region redraws by itself.
 
@@ -572,7 +572,7 @@ The page underneath is not repainted, which is what makes a live HUD cheap.
 ## [listbox + detail console](page_master_detail)
 ---
 Category: Full page
-Kind: page
+Shows: page
 ---
 The settled console shape: a titled listbox acting on a detail panel.
 
@@ -583,7 +583,7 @@ room its content needs rather than a strip.
 ## [layout playground](page_layout_playground)
 ---
 Category: Full page
-Kind: page
+Shows: page
 ---
 Set row-height, col-width and font from dropdowns and watch the boxes move.
 
