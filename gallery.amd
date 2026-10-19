@@ -295,6 +295,17 @@ A hull rendered from its ship_data key.
 Like the slider, a Ship declines to be measured -- its size includes engine-drawn
 chrome -- so it falls back to flex in a content-sized column rather than to zero.
 
+## [gui_ship_portrait](ship_portrait)
+---
+Category: Controls
+---
+A hull as its pre-rendered portrait: one cell of a sheet, drawn as an image.
+
+`gui_ship` is a live 3D render per widget, so a list with a ship on every row pays
+for each one. A portrait costs what an image costs. The base game's sheet ships
+with sbs_utils; a mod builds its own with `sbs art portraits`. A hull with no
+portrait falls back to `gui_ship`, so it always draws.
+
 ## [gui_image](image_basic)
 ---
 Category: Controls

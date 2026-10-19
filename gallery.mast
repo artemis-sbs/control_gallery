@@ -368,6 +368,17 @@
             gui_ship("tsn_light_cruiser")
 # <<gallery
 
+        case "ship_portrait":
+# >>gallery: ship_portrait
+            # A PICTURE of the hull from a pre-rendered sheet - the cost of an image,
+            # so use it wherever there are many (a list row each, a roster, a card).
+            # A hull with no portrait falls back to the live 3D ship.
+            gui_row("row-height: 1fr;")
+            gui_ship_portrait("tsn_light_cruiser")
+            gui_ship_portrait("kralien_battleship")
+            gui_ship_portrait("starbase_command")
+# <<gallery
+
         case "image_basic":
 # >>gallery: image_basic
             # PREFER AN ATLAS KEY. It names the art once, so every screen that
